@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ilija (Zongyuan) Li | AI × Business × Creative Tech</title>
+  <title>Ilija (Zongyuan) Li | AI Applications × Business × Creative Technology</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@400;600;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* ===== Language toggle ===== */
     .zh-content { display: none !important; }
     .en-content { display: block; }
     span.en-content { display: inline; }
@@ -21,7 +20,6 @@
     body.lang-zh .zh-content { display: block !important; }
     body.lang-zh span.zh-content { display: inline !important; }
 
-    /* ===== Scroll reveal ===== */
     .fade-in-section {
       opacity: 0;
       transform: translateY(28px);
@@ -34,7 +32,6 @@
       transform: none;
     }
 
-    /* ===== Canvas ===== */
     #three-canvas {
       display: block;
       width: 100vw;
@@ -42,24 +39,68 @@
       background: transparent;
     }
 
-    /* ===== Fonts ===== */
     .zh-serif { font-family: "Noto Serif SC", serif; }
     .zh-sans  { font-family: "Noto Sans SC", sans-serif; }
 
-    /* ===== Hero gradient ===== */
     .hero-vignette {
-      background: radial-gradient(ellipse at center,
-        rgba(0,0,0,0.08) 0%,
-        rgba(0,0,0,0.65) 65%,
-        rgba(0,0,0,0.92) 100%);
+      background: radial-gradient(
+        ellipse at center,
+        rgba(0,0,0,0.10) 0%,
+        rgba(0,0,0,0.68) 62%,
+        rgba(0,0,0,0.95) 100%
+      );
     }
 
-    /* ===== Photo ring glow ===== */
     .photo-glow {
       box-shadow:
-        0 0 0 1px rgba(255,255,255,0.08),
+        0 0 0 1px rgba(255,255,255,0.07),
         0 30px 80px rgba(0,0,0,0.55),
         0 0 60px rgba(139,92,246,0.10);
+    }
+
+    .glass-panel {
+      background: rgba(10, 10, 10, 0.52);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .section-title-line {
+      position: relative;
+    }
+    .section-title-line::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -14px;
+      width: 84px;
+      height: 2px;
+      background: linear-gradient(90deg, #8b5cf6, transparent);
+    }
+
+    .soft-border {
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .skill-pill {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .card-hover {
+      transition: all 0.35s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139, 92, 246, 0.7);
+      box-shadow: 0 18px 50px rgba(139,92,246,0.10);
+    }
+
+    .text-gradient {
+      background: linear-gradient(90deg, #ffffff 0%, #b8b8c7 55%, #7c7c92 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
   </style>
 
@@ -68,9 +109,11 @@
       theme: {
         extend: {
           colors: {
-            'art-dark': '#0a0a0a',
-            'art-gray': '#121212',
-            'art-accent': '#8b5cf6'
+            'art-dark': '#080808',
+            'art-gray': '#101010',
+            'art-panel': '#131313',
+            'art-accent': '#8b5cf6',
+            'art-muted': '#9ca3af'
           },
           fontFamily: {
             sans: ['Space Grotesk', 'sans-serif'],
@@ -91,7 +134,6 @@
 </head>
 
 <body class="bg-art-dark text-gray-300 antialiased m-0 p-0 selection:bg-art-accent selection:text-white">
-
   <!-- NAV -->
   <nav class="fixed top-0 left-0 w-full z-50 mix-blend-difference px-6 py-6 flex justify-between items-center text-white">
     <div class="text-xl font-bold tracking-widest uppercase">ILIJA</div>
@@ -101,11 +143,17 @@
         <a href="#about" class="hover:text-art-accent transition">
           <span class="en-content">About</span><span class="zh-content zh-sans">关于</span>
         </a>
+        <a href="#experience" class="hover:text-art-accent transition">
+          <span class="en-content">Experience</span><span class="zh-content zh-sans">经历</span>
+        </a>
         <a href="#projects" class="hover:text-art-accent transition">
           <span class="en-content">Projects</span><span class="zh-content zh-sans">项目</span>
         </a>
         <a href="#skills" class="hover:text-art-accent transition">
           <span class="en-content">Skills</span><span class="zh-content zh-sans">能力</span>
+        </a>
+        <a href="#education" class="hover:text-art-accent transition">
+          <span class="en-content">Education</span><span class="zh-content zh-sans">教育</span>
         </a>
         <a href="#contact" class="hover:text-art-accent transition">
           <span class="en-content">Contact</span><span class="zh-content zh-sans">联系</span>
@@ -132,13 +180,12 @@
       Loading 3D…
     </div>
 
-    <!-- content container -->
-    <div class="relative z-10 w-full max-w-6xl px-6 pt-28 pb-20">
+    <div class="relative z-10 w-full max-w-7xl px-6 pt-28 pb-20">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
 
         <!-- Photo card -->
         <div class="md:col-span-5 fade-in-section" style="--delay: 0ms;">
-          <div class="bg-black/40 border border-gray-800 rounded-2xl p-6 md:p-8 photo-glow">
+          <div class="glass-panel rounded-3xl p-6 md:p-8 photo-glow">
             <div class="flex items-center justify-between mb-5">
               <div class="text-xs tracking-[0.3em] uppercase text-gray-500">
                 <span class="en-content">Profile</span>
@@ -150,18 +197,20 @@
             </div>
 
             <div class="rounded-2xl overflow-hidden border border-white/10">
-              <!-- ✅ Put profile.jpg in the same folder -->
               <img src="profile.jpg" alt="Zongyuan Li headshot" class="w-full h-auto block">
             </div>
 
             <div class="mt-6 flex flex-wrap gap-2">
-              <span class="px-3 py-1 rounded-full text-[11px] border border-gray-800 bg-[#0b0b0b] text-gray-300">
-                <span class="en-content">AI</span><span class="zh-content zh-sans">AI</span>
+              <span class="px-3 py-1 rounded-full text-[11px] skill-pill text-gray-300">
+                <span class="en-content">AI Applications</span><span class="zh-content zh-sans">AI应用</span>
               </span>
-              <span class="px-3 py-1 rounded-full text-[11px] border border-gray-800 bg-[#0b0b0b] text-gray-300">
-                <span class="en-content">Cross-Border Trade</span><span class="zh-content zh-sans">跨境贸易</span>
+              <span class="px-3 py-1 rounded-full text-[11px] skill-pill text-gray-300">
+                <span class="en-content">Automation</span><span class="zh-content zh-sans">自动化</span>
               </span>
-              <span class="px-3 py-1 rounded-full text-[11px] border border-gray-800 bg-[#0b0b0b] text-gray-300">
+              <span class="px-3 py-1 rounded-full text-[11px] skill-pill text-gray-300">
+                <span class="en-content">Cross-Border Business</span><span class="zh-content zh-sans">跨境业务</span>
+              </span>
+              <span class="px-3 py-1 rounded-full text-[11px] skill-pill text-gray-300">
                 <span class="en-content">Creative Tech</span><span class="zh-content zh-sans">创意技术</span>
               </span>
             </div>
@@ -170,24 +219,30 @@
 
         <!-- Hero text -->
         <div class="md:col-span-7 fade-in-section" style="--delay: 80ms;">
-          <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight">
-            <span class="en-content">Zongyuan Li <span class="text-gray-500 font-light">(Ilija)</span></span>
-            <span class="zh-content zh-serif tracking-[0.12em]">李 宗 元</span>
-          </h1>
-
-          <div class="mt-4 text-lg md:text-2xl font-light tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">
-            <span class="en-content">AI × Business × Creative Technology</span>
-            <span class="zh-content zh-serif tracking-widest">技术 × 商业 × 创意技术</span>
+          <div class="text-[11px] tracking-[0.38em] uppercase text-gray-500 mb-4">
+            <span class="en-content">AI · BUSINESS · CREATIVE TECHNOLOGY</span>
+            <span class="zh-content zh-sans">AI · 商业 · 创意技术</span>
           </div>
 
-          <p class="mt-6 text-gray-400 leading-relaxed max-w-2xl">
+          <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight">
+            <span class="en-content">Zongyuan Li <span class="text-gray-500 font-light">(Ilija)</span></span>
+            <span class="zh-content zh-serif tracking-[0.08em]">李宗元 <span class="text-gray-500 font-light zh-sans">（Ilija）</span></span>
+          </h1>
+
+          <div class="mt-4 text-lg md:text-2xl font-light tracking-wide text-gradient">
+            <span class="en-content">Building practical AI systems with business execution and narrative thinking</span>
+            <span class="zh-content zh-serif tracking-[0.08em]">以业务执行力与叙事思维，构建可落地的 AI 应用系统</span>
+          </div>
+
+          <p class="mt-6 text-gray-400 leading-relaxed max-w-3xl text-sm md:text-base">
             <span class="en-content">
-              Currently based in Serbia for a doctoral project related to film & visual storytelling.
-              I build practical work at the intersection of AI tools, cross-border operations, and creative production.
+              Interdisciplinary professional with a background in automation engineering, cultural management, cross-border business,
+              and creative production. Currently based in Serbia and pursuing a PhD in Drama and Film Studies while actively transitioning
+              into AI application engineering through automation workflows, API integration, lightweight backend development, and AI-assisted content systems.
             </span>
             <span class="zh-content zh-sans">
-              目前因博士项目（电影与视觉叙事相关）暂居塞尔维亚。
-              我专注于 AI 工具、跨境商业运营与创意生产的交叉实践，把想法落成可执行的项目。
+              我拥有自动化工程、文化管理、跨境业务与创意生产的复合背景。目前暂居塞尔维亚，攻读戏剧与电影研究博士，
+              并正通过自动化工作流、API 集成、轻量后端开发与 AI 内容系统，持续向 AI 应用工程方向转型。
             </span>
           </p>
 
@@ -204,36 +259,37 @@
             </a>
           </div>
 
-          <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl">
-            <div class="p-4 rounded-2xl border border-gray-800 bg-black/40">
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
+            <div class="p-4 rounded-2xl glass-panel">
               <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-2">
                 <span class="en-content">Focus</span><span class="zh-content zh-sans">方向</span>
               </div>
               <div class="text-sm text-gray-300">
-                <span class="en-content">AI + Business Execution</span>
-                <span class="zh-content zh-sans">AI + 商业落地</span>
+                <span class="en-content">AI Applications & Workflow Automation</span>
+                <span class="zh-content zh-sans">AI应用与工作流自动化</span>
               </div>
             </div>
-            <div class="p-4 rounded-2xl border border-gray-800 bg-black/40">
+
+            <div class="p-4 rounded-2xl glass-panel">
               <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-2">
                 <span class="en-content">Strength</span><span class="zh-content zh-sans">优势</span>
               </div>
               <div class="text-sm text-gray-300">
-                <span class="en-content">Cross-cultural ops</span>
-                <span class="zh-content zh-sans">跨文化沟通与运营</span>
+                <span class="en-content">Execution, communication, cross-cultural business</span>
+                <span class="zh-content zh-sans">执行力、沟通力、跨文化业务协同</span>
               </div>
             </div>
-            <div class="p-4 rounded-2xl border border-gray-800 bg-black/40">
+
+            <div class="p-4 rounded-2xl glass-panel">
               <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-2">
-                <span class="en-content">Tooling</span><span class="zh-content zh-sans">工具</span>
+                <span class="en-content">Current Stack</span><span class="zh-content zh-sans">当前技术栈</span>
               </div>
               <div class="text-sm text-gray-300">
-                <span class="en-content">Prompt + Web + Workflow</span>
-                <span class="zh-content zh-sans">Prompt + Web + 自动化</span>
+                <span class="en-content">n8n · FastAPI · JSON · GitHub · Prompt</span>
+                <span class="zh-content zh-sans">n8n · FastAPI · JSON · GitHub · Prompt</span>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -241,191 +297,524 @@
 
   <!-- ABOUT -->
   <section id="about" class="py-24 md:py-32 px-6 bg-art-dark fade-in-section" style="--delay: 0ms;">
-    <div class="container mx-auto max-w-4xl">
-      <h2 class="text-3xl md:text-4xl font-bold mb-10 text-white border-l-4 border-art-accent pl-5">
+    <div class="container mx-auto max-w-5xl">
+      <h2 class="text-3xl md:text-4xl font-bold mb-14 text-white section-title-line">
         <span class="en-content">About</span>
-        <span class="zh-content zh-serif tracking-widest">关于</span>
+        <span class="zh-content zh-serif tracking-widest">关于我</span>
       </h2>
 
-      <div class="space-y-6 text-gray-400 leading-loose text-sm md:text-base">
-        <div class="en-content space-y-6">
-          <p>
-            I have an interdisciplinary background combining <span class="text-white">Automation Engineering</span>,
-            <span class="text-white">Cultural Management</span>, and hands-on experience in cross-border operations.
-          </p>
-          <p>
-            I’m currently based in Serbia for a doctoral project related to film and visual storytelling.
-            Professionally, I’ve worked on marketing & B2B communication, and I also ran an independent cross-border trade initiative
-            connecting China suppliers with the Serbian market.
-          </p>
-          <p class="text-white font-medium">
-            I’m interested in roles and collaborations where AI tools and structured execution can create real business outcomes.
-          </p>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="glass-panel rounded-3xl p-8">
+          <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-4">
+            <span class="en-content">Profile</span>
+            <span class="zh-content zh-sans">概况</span>
+          </div>
+          <div class="space-y-4 text-gray-400 leading-loose text-sm md:text-base">
+            <p class="en-content">
+              I am an interdisciplinary builder combining engineering logic, business execution, and creative narrative thinking.
+              My background spans automation engineering, cultural management, international communication, and hands-on market operations.
+            </p>
+            <p class="en-content">
+              While my academic path is rooted in film and media research, my current professional direction is focused on practical AI applications:
+              workflow automation, prompt systems, backend experimentation, structured data handling, and product-oriented execution.
+            </p>
+            <p class="en-content text-white font-medium">
+              I am especially interested in roles where AI is not just discussed, but integrated into real tools, internal workflows, and usable systems.
+            </p>
+
+            <p class="zh-content zh-sans">
+              我是一个融合工程逻辑、商业执行与创意叙事思维的跨界实践者。我的背景横跨自动化工程、文化管理、国际沟通与实际市场运营。
+            </p>
+            <p class="zh-content zh-sans">
+              尽管我的学术路径扎根于电影与媒体研究，但当前的职业重心正在转向更实际的 AI 应用场景：工作流自动化、提示词系统、后端实验、
+              结构化数据处理，以及面向产品和业务的落地执行。
+            </p>
+            <p class="zh-content zh-sans text-white font-medium">
+              我尤其希望进入那些把 AI 真正嵌入到工具、内部流程与可用系统中的岗位，而不是只停留在概念层面。
+            </p>
+          </div>
         </div>
 
-        <div class="zh-content zh-sans space-y-6">
-          <p>
-            我拥有跨学科背景，融合 <span class="text-white">自动化工程</span>、<span class="text-white">文化管理</span>，
-            并具备跨境业务与运营的实践经验。
-          </p>
-          <p>
-            目前因博士项目（电影与视觉叙事相关）暂居塞尔维亚。
-            职业经历包括市场与B2B沟通；同时我独立开展跨境贸易项目，连接中国供应链与塞尔维亚本地市场。
-          </p>
-          <p class="text-white font-medium">
-            我希望在“AI工具 + 结构化执行”能够产生真实业务结果的岗位或合作中发挥价值。
-          </p>
+        <div class="glass-panel rounded-3xl p-8">
+          <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-4">
+            <span class="en-content">Highlights</span>
+            <span class="zh-content zh-sans">核心亮点</span>
+          </div>
+
+          <div class="space-y-5 text-sm text-gray-300">
+            <div>
+              <div class="text-white font-semibold mb-1">
+                <span class="en-content">Practical execution</span>
+                <span class="zh-content zh-sans">执行力强</span>
+              </div>
+              <p class="text-gray-400 leading-relaxed">
+                <span class="en-content">Used to moving from idea to action, whether in trade operations, project coordination, or AI workflow prototyping.</span>
+                <span class="zh-content zh-sans">习惯把想法快速推进到执行阶段，无论是跨境业务、项目协同还是 AI 工作流原型搭建。</span>
+              </p>
+            </div>
+
+            <div>
+              <div class="text-white font-semibold mb-1">
+                <span class="en-content">Cross-cultural communication</span>
+                <span class="zh-content zh-sans">跨文化沟通</span>
+              </div>
+              <p class="text-gray-400 leading-relaxed">
+                <span class="en-content">Experienced in working across Chinese and Serbian contexts, including supplier communication, local market exploration, and bilingual presentation.</span>
+                <span class="zh-content zh-sans">具备中塞双重语境下的沟通经验，涉及供应链沟通、本地市场探索与双语表达。</span>
+              </p>
+            </div>
+
+            <div>
+              <div class="text-white font-semibold mb-1">
+                <span class="en-content">Technology + storytelling</span>
+                <span class="zh-content zh-sans">技术 + 叙事思维</span>
+              </div>
+              <p class="text-gray-400 leading-relaxed">
+                <span class="en-content">Combines structured technical thinking with narrative sensitivity, useful for AI products, user-facing tools, and creative systems.</span>
+                <span class="zh-content zh-sans">能将结构化技术思维与叙事敏感度结合，适合 AI 产品、面向用户的工具以及创意型系统。</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="py-24 md:py-32 px-6 bg-art-gray fade-in-section">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-3xl md:text-4xl font-bold mb-14 text-white section-title-line">
+        <span class="en-content">Experience</span>
+        <span class="zh-content zh-serif tracking-widest">工作经历</span>
+      </h2>
+
+      <div class="space-y-8">
+        <!-- SilkTrail -->
+        <div class="glass-panel rounded-3xl p-8 card-hover">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+            <div>
+              <div class="text-art-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">
+                <span class="en-content">Cross-Border Business</span>
+                <span class="zh-content zh-sans">跨境业务</span>
+              </div>
+              <h3 class="text-2xl font-bold text-white">SilkTrail</h3>
+              <p class="text-sm text-gray-500 mt-1 uppercase tracking-[0.18em]">
+                <span class="en-content">Cross-Border Business Founder</span>
+                <span class="zh-content zh-sans">跨境业务创始人</span>
+              </p>
+            </div>
+            <div class="text-xs text-gray-500 uppercase tracking-[0.2em]">
+              China ↔ Serbia
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 mt-8">
+            <div>
+              <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-3">
+                <span class="en-content">Overview</span>
+                <span class="zh-content zh-sans">概述</span>
+              </div>
+              <p class="text-gray-400 leading-relaxed text-sm">
+                <span class="en-content">
+                  Independent cross-border initiative connecting Chinese suppliers with the Serbian market.
+                  Responsible for turning product ideas into executable trade operations through sourcing, communication,
+                  logistics coordination, and local market exploration.
+                </span>
+                <span class="zh-content zh-sans">
+                  独立跨境业务项目，连接中国供应链与塞尔维亚市场。主要负责将产品想法转化为可执行的贸易流程，
+                  包括选品、沟通、物流协调以及本地市场探索。
+                </span>
+              </p>
+            </div>
+
+            <div>
+              <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-3">
+                <span class="en-content">Responsibilities</span>
+                <span class="zh-content zh-sans">职责</span>
+              </div>
+              <ul class="space-y-2 text-sm text-gray-300">
+                <li>• <span class="en-content">Supplier communication and sourcing coordination in China</span><span class="zh-content zh-sans">中国供应商沟通与采购协调</span></li>
+                <li>• <span class="en-content">Product selection, positioning, and pricing strategy</span><span class="zh-content zh-sans">产品筛选、定位与定价策略</span></li>
+                <li>• <span class="en-content">Packaging / labeling coordination for market compliance</span><span class="zh-content zh-sans">包装与标签协同，适配市场合规需求</span></li>
+                <li>• <span class="en-content">International logistics and customs process support</span><span class="zh-content zh-sans">国际物流与清关流程协同</span></li>
+                <li>• <span class="en-content">Local channel exploration and B2B partner communication in Serbia</span><span class="zh-content zh-sans">塞尔维亚本地渠道探索与 B2B 合作沟通</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Senpeng -->
+        <div class="glass-panel rounded-3xl p-8 card-hover">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+            <div>
+              <div class="text-art-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">
+                <span class="en-content">Marketing & Operations</span>
+                <span class="zh-content zh-sans">市场与运营</span>
+              </div>
+              <h3 class="text-2xl font-bold text-white">
+                <span class="en-content">Zhengzhou Senpeng Electronic Technology Co., Ltd.</span>
+                <span class="zh-content zh-sans">郑州森鹏电子技术有限公司</span>
+              </h3>
+              <p class="text-sm text-gray-500 mt-1 uppercase tracking-[0.18em]">
+                <span class="en-content">Marketing Manager</span>
+                <span class="zh-content zh-sans">市场经理</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 mt-8">
+            <div>
+              <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-3">
+                <span class="en-content">Overview</span>
+                <span class="zh-content zh-sans">概述</span>
+              </div>
+              <p class="text-gray-400 leading-relaxed text-sm">
+                <span class="en-content">
+                  Worked on brand promotion, project coordination, and business communication in an industrial / technology-oriented company,
+                  supporting both market-facing work and internal execution.
+                </span>
+                <span class="zh-content zh-sans">
+                  在一家工业 / 技术导向企业中负责品牌推广、项目协同与商务沟通，兼顾市场端与内部执行工作。
+                </span>
+              </p>
+            </div>
+
+            <div>
+              <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-3">
+                <span class="en-content">Responsibilities</span>
+                <span class="zh-content zh-sans">职责</span>
+              </div>
+              <ul class="space-y-2 text-sm text-gray-300">
+                <li>• <span class="en-content">Brand promotion and marketing material preparation</span><span class="zh-content zh-sans">品牌推广与市场材料准备</span></li>
+                <li>• <span class="en-content">Bid documentation and project support</span><span class="zh-content zh-sans">投标文件与项目支持</span></li>
+                <li>• <span class="en-content">B2B client communication and negotiation</span><span class="zh-content zh-sans">B2B 客户沟通与商务谈判</span></li>
+                <li>• <span class="en-content">Exhibition support including China International SME Fair</span><span class="zh-content zh-sans">国际展会支持，包括中国国际中小企业博览会</span></li>
+                <li>• <span class="en-content">Cross-team coordination between marketing, sales, and project functions</span><span class="zh-content zh-sans">市场、销售与项目团队的跨部门协同</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photography -->
+        <div class="glass-panel rounded-3xl p-8 card-hover">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+            <div>
+              <div class="text-art-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">
+                <span class="en-content">Visual Practice</span>
+                <span class="zh-content zh-sans">视觉实践</span>
+              </div>
+              <h3 class="text-2xl font-bold text-white">
+                <span class="en-content">Independent Photographer</span>
+                <span class="zh-content zh-sans">独立摄影实践</span>
+              </h3>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <p class="text-gray-400 leading-relaxed text-sm">
+              <span class="en-content">
+                Experience in portrait and visual storytelling photography, with an interest in composition, lighting, atmosphere,
+                and image-based narrative. This visual practice supports my broader work in creative technology and storytelling-oriented interfaces.
+              </span>
+              <span class="zh-content zh-sans">
+                具有人像摄影与视觉叙事摄影经验，关注构图、光线、氛围与图像叙事。这种视觉实践也反过来支撑我在创意技术、
+                叙事表达与界面呈现方面的工作。
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="py-24 md:py-32 px-6 bg-art-gray fade-in-section" style="--delay: 0ms;">
+  <section id="projects" class="py-24 md:py-32 px-6 bg-art-dark fade-in-section">
     <div class="container mx-auto max-w-7xl">
       <h2 class="text-3xl md:text-4xl font-bold mb-14 text-center text-white uppercase tracking-widest">
         <span class="en-content">Projects</span>
-        <span class="zh-content zh-serif tracking-widest">项目</span>
+        <span class="zh-content zh-serif tracking-widest">项目经验</span>
       </h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
 
-        <!-- SilkTrail -->
-        <div class="border border-gray-800 bg-black p-8 rounded-2xl hover:border-art-accent transition duration-500">
+        <div class="glass-panel rounded-3xl p-7 card-hover">
           <div class="text-art-accent text-xs font-bold mb-3 uppercase tracking-widest">
-            <span class="en-content">Cross-Border Trade</span><span class="zh-content zh-sans">跨境贸易</span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">SilkTrail</h3>
-          <p class="text-gray-500 text-xs mb-5 uppercase tracking-wider">
-            <span class="en-content">Founder</span><span class="zh-content zh-sans">创始人</span>
-          </p>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            <span class="en-content">
-              Independent cross-border initiative (China → Serbia). Coordinated sourcing communication,
-              logistics/customs process, and local channel exploration.
-            </span>
-            <span class="zh-content zh-sans">
-              独立跨境项目（中国→塞尔维亚），负责选品与供应商沟通、物流清关协同，以及本地渠道探索。
-            </span>
-          </p>
-        </div>
-
-        <!-- Marketing -->
-        <div class="border border-gray-800 bg-black p-8 rounded-2xl hover:border-art-accent transition duration-500">
-          <div class="text-art-accent text-xs font-bold mb-3 uppercase tracking-widest">
-            <span class="en-content">Marketing & Ops</span><span class="zh-content zh-sans">市场与运营</span>
+            <span class="en-content">AI Automation</span><span class="zh-content zh-sans">AI自动化</span>
           </div>
           <h3 class="text-xl font-bold text-white mb-2">
-            <span class="en-content">Marketing Manager</span><span class="zh-content zh-sans">市场经理</span>
-          </h3>
-          <p class="text-gray-500 text-xs mb-5 uppercase tracking-wider">Zhengzhou Senpeng</p>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            <span class="en-content">
-              Brand promotion, B2B communication, project coordination, and exhibition support (China International SME Fair).
-            </span>
-            <span class="zh-content zh-sans">
-              品牌推广、B2B沟通、项目协调，及国际展会支持（中国国际中小企业博览会）。
-            </span>
-          </p>
-        </div>
-
-        <!-- Creative Tech -->
-        <div class="border border-gray-800 bg-black p-8 rounded-2xl hover:border-art-accent transition duration-500">
-          <div class="text-art-accent text-xs font-bold mb-3 uppercase tracking-widest">
-            <span class="en-content">AI & Creative Tech</span><span class="zh-content zh-sans">AI与创意技术</span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">
-            <span class="en-content">Web + Visual Experiments</span><span class="zh-content zh-sans">网页与视觉实验</span>
+            <span class="en-content">Serbia Daily News Automation</span>
+            <span class="zh-content zh-sans">塞尔维亚每日新闻自动化</span>
           </h3>
           <p class="text-gray-500 text-xs mb-5 uppercase tracking-wider">
-            <span class="en-content">Independent</span><span class="zh-content zh-sans">独立</span>
+            n8n · AI Summary · JSON · GitHub API
           </p>
           <p class="text-gray-400 text-sm leading-relaxed">
             <span class="en-content">
-              Building interactive web visuals and AI-assisted creative workflows for storytelling and portfolio production.
+              Built an automated workflow for collecting news from RSS sources, summarizing content with AI,
+              assembling structured JSON output, and updating data automatically to GitHub.
             </span>
             <span class="zh-content zh-sans">
-              构建交互式网页视觉与AI辅助创作工作流，用于叙事表达与作品集生产。
+              搭建自动化工作流：从 RSS 抓取新闻，用 AI 生成摘要，组装为结构化 JSON，
+              并自动更新到 GitHub 仓库。
             </span>
           </p>
         </div>
 
+        <div class="glass-panel rounded-3xl p-7 card-hover">
+          <div class="text-art-accent text-xs font-bold mb-3 uppercase tracking-widest">
+            <span class="en-content">Backend Practice</span><span class="zh-content zh-sans">后端练习</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">
+            <span class="en-content">AI Chat Backend</span>
+            <span class="zh-content zh-sans">AI 聊天后端</span>
+          </h3>
+          <p class="text-gray-500 text-xs mb-5 uppercase tracking-wider">
+            Python · FastAPI · API Integration
+          </p>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            <span class="en-content">
+              Developed a lightweight FastAPI-based backend to receive prompts, call model APIs,
+              and return structured responses. Used as practice for AI service design and API flow understanding.
+            </span>
+            <span class="zh-content zh-sans">
+              开发基于 FastAPI 的轻量后端，用于接收用户输入、调用模型 API 并返回结构化结果，
+              作为 AI 服务设计与 API 流程理解的练习项目。
+            </span>
+          </p>
+        </div>
+
+        <div class="glass-panel rounded-3xl p-7 card-hover">
+          <div class="text-art-accent text-xs font-bold mb-3 uppercase tracking-widest">
+            <span class="en-content">Web Portfolio</span><span class="zh-content zh-sans">网页作品集</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">
+            <span class="en-content">Interactive Portfolio Website</span>
+            <span class="zh-content zh-sans">交互式个人网站</span>
+          </h3>
+          <p class="text-gray-500 text-xs mb-5 uppercase tracking-wider">
+            HTML · Tailwind · Three.js
+          </p>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            <span class="en-content">
+              Designed and built an interactive portfolio site combining modern front-end design,
+              motion, bilingual presentation, and visual atmosphere for personal branding and project showcase.
+            </span>
+            <span class="zh-content zh-sans">
+              设计并搭建交互式个人网站，结合现代前端设计、动效、双语展示与视觉氛围，
+              用于个人品牌表达与项目展示。
+            </span>
+          </p>
+        </div>
+
+        <div class="glass-panel rounded-3xl p-7 card-hover">
+          <div class="text-art-accent text-xs font-bold mb-3 uppercase tracking-widest">
+            <span class="en-content">Concept Product</span><span class="zh-content zh-sans">概念产品</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">
+            <span class="en-content">Universe Customer Center</span>
+            <span class="zh-content zh-sans">宇宙客服中心</span>
+          </h3>
+          <p class="text-gray-500 text-xs mb-5 uppercase tracking-wider">
+            Product Concept · Interface Design · Narrative UX
+          </p>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            <span class="en-content">
+              A conceptual digital product exploring emotional interaction, cosmic visual language,
+              and reflective life-oriented tools through immersive interface design.
+            </span>
+            <span class="zh-content zh-sans">
+              一个围绕情感交互、宇宙视觉语言与人生反思工具展开的概念型数字产品，
+              通过沉浸式界面设计探索更有温度的交互体验。
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="py-24 md:py-32 px-6 bg-art-dark border-t border-gray-900 fade-in-section" style="--delay: 0ms;">
+  <section id="skills" class="py-24 md:py-32 px-6 bg-art-gray border-t border-gray-900 fade-in-section">
     <div class="container mx-auto max-w-6xl">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white border-l-4 border-art-accent pl-5">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white section-title-line">
         <span class="en-content">Skills</span>
-        <span class="zh-content zh-serif tracking-widest">能力</span>
+        <span class="zh-content zh-serif tracking-widest">技能与能力</span>
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-7 rounded-2xl border border-gray-800 bg-black/40">
-          <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-3">
-            <span class="en-content">Business</span><span class="zh-content zh-sans">商业</span>
+        <div class="glass-panel rounded-3xl p-7">
+          <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-4">
+            <span class="en-content">AI & Technical</span><span class="zh-content zh-sans">AI 与技术</span>
           </div>
           <ul class="text-sm text-gray-300 space-y-2">
-            <li>• <span class="en-content">B2B communication</span><span class="zh-content zh-sans">B2B沟通</span></li>
+            <li>• Python</li>
+            <li>• FastAPI</li>
+            <li>• n8n Automation</li>
+            <li>• Prompt Engineering</li>
+            <li>• API Integration</li>
+            <li>• JSON Data Handling</li>
+            <li>• GitHub Workflow Basics</li>
+            <li>• HTML / CSS / Tailwind</li>
+          </ul>
+        </div>
+
+        <div class="glass-panel rounded-3xl p-7">
+          <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-4">
+            <span class="en-content">Business & Operations</span><span class="zh-content zh-sans">商业与运营</span>
+          </div>
+          <ul class="text-sm text-gray-300 space-y-2">
+            <li>• <span class="en-content">Cross-border trade coordination</span><span class="zh-content zh-sans">跨境贸易协调</span></li>
+            <li>• <span class="en-content">B2B communication</span><span class="zh-content zh-sans">B2B 商务沟通</span></li>
             <li>• <span class="en-content">Negotiation</span><span class="zh-content zh-sans">商务谈判</span></li>
             <li>• <span class="en-content">Market research</span><span class="zh-content zh-sans">市场调研</span></li>
+            <li>• <span class="en-content">Product positioning</span><span class="zh-content zh-sans">产品定位</span></li>
+            <li>• <span class="en-content">Logistics & customs coordination</span><span class="zh-content zh-sans">物流与清关协同</span></li>
           </ul>
         </div>
 
-        <div class="p-7 rounded-2xl border border-gray-800 bg-black/40">
-          <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-3">
-            <span class="en-content">Trade & Ops</span><span class="zh-content zh-sans">贸易与运营</span>
+        <div class="glass-panel rounded-3xl p-7">
+          <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-4">
+            <span class="en-content">Creative & Communication</span><span class="zh-content zh-sans">创意与表达</span>
           </div>
           <ul class="text-sm text-gray-300 space-y-2">
-            <li>• <span class="en-content">Cross-border coordination</span><span class="zh-content zh-sans">跨境协同</span></li>
-            <li>• <span class="en-content">Logistics & customs</span><span class="zh-content zh-sans">物流清关</span></li>
-            <li>• <span class="en-content">Channel development</span><span class="zh-content zh-sans">渠道拓展</span></li>
-          </ul>
-        </div>
-
-        <div class="p-7 rounded-2xl border border-gray-800 bg-black/40">
-          <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-3">
-            <span class="en-content">AI & Creative</span><span class="zh-content zh-sans">AI与创意</span>
-          </div>
-          <ul class="text-sm text-gray-300 space-y-2">
-            <li>• <span class="en-content">Prompt engineering</span><span class="zh-content zh-sans">提示词结构</span></li>
-            <li>• <span class="en-content">AI workflow design</span><span class="zh-content zh-sans">AI工作流</span></li>
             <li>• <span class="en-content">Visual storytelling</span><span class="zh-content zh-sans">视觉叙事</span></li>
+            <li>• <span class="en-content">Photography</span><span class="zh-content zh-sans">摄影</span></li>
+            <li>• <span class="en-content">Music / Guitar</span><span class="zh-content zh-sans">音乐 / 吉他</span></li>
+            <li>• <span class="en-content">Public speaking</span><span class="zh-content zh-sans">公众表达</span></li>
+            <li>• <span class="en-content">Bilingual communication</span><span class="zh-content zh-sans">双语沟通</span></li>
+            <li>• <span class="en-content">Cross-cultural collaboration</span><span class="zh-content zh-sans">跨文化协作</span></li>
           </ul>
         </div>
       </div>
 
-      <div class="mt-10 p-7 rounded-2xl border border-gray-800 bg-black/30">
-        <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-3">
-          <span class="en-content">Education</span><span class="zh-content zh-sans">教育</span>
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <div class="glass-panel rounded-3xl p-7">
+          <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-4">
+            <span class="en-content">Languages</span><span class="zh-content zh-sans">语言能力</span>
+          </div>
+          <div class="space-y-3 text-sm text-gray-300">
+            <div class="flex justify-between gap-4 border-b border-white/5 pb-2">
+              <span><span class="en-content">Chinese</span><span class="zh-content zh-sans">中文</span></span>
+              <span class="text-gray-400"><span class="en-content">Native</span><span class="zh-content zh-sans">母语</span></span>
+            </div>
+            <div class="flex justify-between gap-4 border-b border-white/5 pb-2">
+              <span><span class="en-content">English</span><span class="zh-content zh-sans">英语</span></span>
+              <span class="text-gray-400"><span class="en-content">Fluent</span><span class="zh-content zh-sans">熟练</span></span>
+            </div>
+            <div class="flex justify-between gap-4">
+              <span><span class="en-content">Serbian</span><span class="zh-content zh-sans">塞尔维亚语</span></span>
+              <span class="text-gray-400"><span class="en-content">Basic / Learning</span><span class="zh-content zh-sans">基础 / 学习中</span></span>
+            </div>
+          </div>
         </div>
-        <div class="text-sm text-gray-300 leading-relaxed">
-          <div class="mb-2">
-            <span class="text-white font-semibold">University of Arts in Belgrade</span> — <span class="en-content">M.A. Cultural Management</span><span class="zh-content zh-sans">文化管理硕士</span>
+
+        <div class="glass-panel rounded-3xl p-7">
+          <div class="text-[10px] tracking-[0.35em] uppercase text-gray-500 mb-4">
+            <span class="en-content">Interests</span><span class="zh-content zh-sans">兴趣方向</span>
           </div>
-          <div class="text-gray-400">
-            <span class="en-content">Currently in Serbia for doctoral project (film & visual storytelling).</span>
-            <span class="zh-content zh-sans">目前因博士项目（电影与视觉叙事相关）在塞尔维亚。</span>
-          </div>
-          <div class="mt-4">
-            <span class="text-white font-semibold">Zhongyuan University of Technology</span> — <span class="en-content">B.Eng. Automation Engineering</span><span class="zh-content zh-sans">自动化工程学士</span>
-          </div>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            <span class="en-content">
+              AI applications in real business systems, automation-first workflows, creative technology,
+              storytelling interfaces, portrait photography, music, and interdisciplinary product thinking.
+            </span>
+            <span class="zh-content zh-sans">
+              关注 AI 在真实业务系统中的应用、自动化优先的工作流、创意技术、叙事型界面、人像摄影、音乐，
+              以及跨学科的产品思维。
+            </span>
+          </p>
         </div>
       </div>
+    </div>
+  </section>
 
+  <!-- EDUCATION -->
+  <section id="education" class="py-24 md:py-32 px-6 bg-art-dark border-t border-gray-900 fade-in-section">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white section-title-line">
+        <span class="en-content">Education</span>
+        <span class="zh-content zh-serif tracking-widest">教育背景</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="glass-panel rounded-3xl p-7 card-hover">
+          <div class="text-art-accent text-xs font-bold mb-3 uppercase tracking-widest">
+            <span class="en-content">Doctoral Study</span><span class="zh-content zh-sans">博士阶段</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">
+            <span class="en-content">University of Novi Sad</span>
+            <span class="zh-content zh-sans">诺维萨德大学</span>
+          </h3>
+          <p class="text-gray-500 text-xs mb-5 uppercase tracking-wider">
+            <span class="en-content">PhD in Drama and Film Studies · 2024 – Present</span>
+            <span class="zh-content zh-sans">戏剧与电影研究博士 · 2024年至今</span>
+          </p>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            <span class="en-content">
+              Research focus: narrative structure, visual storytelling, and media technology in contemporary cultural production.
+            </span>
+            <span class="zh-content zh-sans">
+              研究重点：当代文化生产中的叙事结构、视觉叙事和媒体技术。
+            </span>
+          </p>
+        </div>
+
+        <div class="glass-panel rounded-3xl p-7 card-hover">
+          <div class="text-art-accent text-xs font-bold mb-3 uppercase tracking-widest">
+            <span class="en-content">Master's Degree</span><span class="zh-content zh-sans">硕士阶段</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">
+            <span class="en-content">Faculty of Dramatic Arts, University of Arts in Belgrade</span>
+            <span class="zh-content zh-sans">贝尔格莱德艺术大学艺术学院</span>
+          </h3>
+          <p class="text-gray-500 text-xs mb-5 uppercase tracking-wider">
+            <span class="en-content">M.A. in Cultural Management · 2023</span>
+            <span class="zh-content zh-sans">文化管理硕士 · 2023</span>
+          </p>
+          <ul class="text-sm text-gray-400 space-y-2">
+            <li>• <span class="en-content">Cultural industry management</span><span class="zh-content zh-sans">文化产业管理</span></li>
+            <li>• <span class="en-content">International cultural collaboration</span><span class="zh-content zh-sans">国际文化合作</span></li>
+            <li>• <span class="en-content">Media and creative production</span><span class="zh-content zh-sans">媒体与创意制作</span></li>
+          </ul>
+        </div>
+
+        <div class="glass-panel rounded-3xl p-7 card-hover">
+          <div class="text-art-accent text-xs font-bold mb-3 uppercase tracking-widest">
+            <span class="en-content">Bachelor's Degree</span><span class="zh-content zh-sans">本科阶段</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">
+            <span class="en-content">Zhongyuan University of Technology</span>
+            <span class="zh-content zh-sans">中原工学院</span>
+          </h3>
+          <p class="text-gray-500 text-xs mb-5 uppercase tracking-wider">
+            <span class="en-content">B.Eng. in Automation Engineering</span>
+            <span class="zh-content zh-sans">自动化工程学士</span>
+          </p>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            <span class="en-content">
+              Engineering foundation in automation systems, technical logic, and structured problem solving.
+            </span>
+            <span class="zh-content zh-sans">
+              具备自动化系统、工程逻辑与结构化问题解决的基础训练。
+            </span>
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="py-24 md:py-32 bg-black text-center border-t border-gray-900 fade-in-section" style="--delay: 0ms;">
+  <section id="contact" class="py-24 md:py-32 bg-black text-center border-t border-gray-900 fade-in-section">
     <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest mb-6 text-white">
-      <span class="en-content">Contact</span><span class="zh-content zh-serif tracking-widest">联系</span>
+      <span class="en-content">Contact</span><span class="zh-content zh-serif tracking-widest">联系我</span>
     </h2>
-    <p class="text-gray-500 mb-10 max-w-xl mx-auto px-6">
-      <span class="en-content">Open to roles, collaboration, and project-based work.</span>
-      <span class="zh-content zh-sans">欢迎工作机会、合作与项目型合作。</span>
+
+    <p class="text-gray-500 mb-10 max-w-2xl mx-auto px-6 leading-relaxed">
+      <span class="en-content">
+        Open to AI application roles, collaboration opportunities, and project-based work where structured execution and practical systems matter.
+      </span>
+      <span class="zh-content zh-sans">
+        欢迎 AI 应用相关岗位、合作机会以及项目型工作，尤其是那些重视结构化执行与实际系统落地的方向。
+      </span>
     </p>
 
     <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 text-sm text-gray-300 px-6">
@@ -434,10 +823,15 @@
         <span class="text-gray-600">Email</span> zongyuanmuzi@gmail.com
       </a>
 
-      <a href="https://wa.me/8618803601737" target="_blank" rel="noopener"
+      <a href="https://wa.me/381698176888" target="_blank" rel="noopener"
          class="px-8 py-4 rounded-xl border border-gray-800 hover:border-art-accent hover:text-white transition flex items-center gap-3 w-full md:w-80 justify-center bg-black/30">
-        <span class="text-gray-600">WhatsApp</span> +8618803601737
+        <span class="text-gray-600">Phone</span> +381698176888
       </a>
+    </div>
+
+    <div class="mt-6 text-xs text-gray-600 px-6">
+      <span class="en-content">GitHub and portfolio links can be added later.</span>
+      <span class="zh-content zh-sans">GitHub 与作品集链接后续可再补充。</span>
     </div>
   </section>
 
@@ -449,7 +843,6 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Scroll reveal
       const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
       const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
@@ -462,7 +855,6 @@
 
       document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
 
-      // Language toggle with persistence
       const btn = document.getElementById('langToggleBtn');
       const saved = localStorage.getItem('lang') || 'en';
 
@@ -478,6 +870,5 @@
       });
     });
   </script>
-
 </body>
 </html>
