@@ -102,6 +102,10 @@
       background-clip: text;
       color: transparent;
     }
+
+    .external-link-glow:hover {
+      box-shadow: 0 12px 35px rgba(139,92,246,0.18);
+    }
   </style>
 
   <script>
@@ -148,6 +152,9 @@
         </a>
         <a href="#projects" class="hover:text-art-accent transition">
           <span class="en-content">Projects</span><span class="zh-content zh-sans">项目</span>
+        </a>
+        <a href="https://zongyuanmuzi-byte.github.io/Photography-Portfolio-li/" target="_blank" rel="noopener" class="hover:text-art-accent transition">
+          <span class="en-content">Photography</span><span class="zh-content zh-sans">摄影集</span>
         </a>
         <a href="#skills" class="hover:text-art-accent transition">
           <span class="en-content">Skills</span><span class="zh-content zh-sans">能力</span>
@@ -248,12 +255,17 @@
 
           <div class="mt-8 flex flex-col sm:flex-row gap-3">
             <a href="#projects"
-               class="px-7 py-3 rounded-xl bg-white text-black text-sm font-bold uppercase tracking-widest hover:bg-gray-200 transition">
+               class="px-7 py-3 rounded-xl bg-white text-black text-sm font-bold uppercase tracking-widest hover:bg-gray-200 transition text-center">
               <span class="en-content">View Projects</span>
               <span class="zh-content zh-sans">查看项目</span>
             </a>
+            <a href="https://zongyuanmuzi-byte.github.io/Photography-Portfolio-li/" target="_blank" rel="noopener"
+               class="px-7 py-3 rounded-xl border border-art-accent text-white text-sm font-bold uppercase tracking-widest hover:bg-art-accent/10 transition text-center external-link-glow">
+              <span class="en-content">View Photography</span>
+              <span class="zh-content zh-sans">查看摄影集</span>
+            </a>
             <a href="#contact"
-               class="px-7 py-3 rounded-xl border border-gray-700 text-white text-sm font-bold uppercase tracking-widest hover:border-white transition">
+               class="px-7 py-3 rounded-xl border border-gray-700 text-white text-sm font-bold uppercase tracking-widest hover:border-white transition text-center">
               <span class="en-content">Contact</span>
               <span class="zh-content zh-sans">联系我</span>
             </a>
@@ -521,6 +533,14 @@
                 叙事表达与界面呈现方面的工作。
               </span>
             </p>
+
+            <div class="mt-6">
+              <a href="https://zongyuanmuzi-byte.github.io/Photography-Portfolio-li/" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-art-accent text-white text-xs font-bold uppercase tracking-[0.18em] hover:bg-art-accent/10 transition external-link-glow">
+                <span class="en-content">Open Photography Portfolio</span>
+                <span class="zh-content zh-sans">打开摄影作品集</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -829,9 +849,18 @@
       </a>
     </div>
 
-    <div class="mt-6 text-xs text-gray-600 px-6">
-      <span class="en-content">GitHub and portfolio links can be added later.</span>
-      <span class="zh-content zh-sans">GitHub 与作品集链接后续可再补充。</span>
+    <div class="mt-6 text-xs text-gray-500 px-6 space-y-2">
+      <div>
+        <a href="https://zongyuanmuzi-byte.github.io/Photography-Portfolio-li/" target="_blank" rel="noopener"
+           class="hover:text-white transition underline underline-offset-4">
+          <span class="en-content">Photography Portfolio</span>
+          <span class="zh-content zh-sans">摄影作品集</span>
+        </a>
+      </div>
+      <div class="text-gray-600">
+        <span class="en-content">GitHub and additional portfolio links can be added later.</span>
+        <span class="zh-content zh-sans">GitHub 与其他作品链接后续可继续补充。</span>
+      </div>
     </div>
   </section>
 
